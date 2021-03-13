@@ -17,16 +17,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun Number(value: Int, active: Boolean) {
+fun Number(active: Boolean, value: Int, modifier: Modifier = Modifier) {
     val backgroundColor by animateColorAsState(
-        if (active) MaterialTheme.colors.primary else
-            MaterialTheme.colors.primaryVariant
+        if (active) MaterialTheme.colors.primary else MaterialTheme.colors.primaryVariant
     )
+
     Box(
+        modifier = modifier.background(backgroundColor),
         contentAlignment = Alignment.Center,
-        modifier = Modifier
-            .size(40.dp)
-            .background(backgroundColor)
     ) {
         Text(
             text = value.toString(),
@@ -40,7 +38,7 @@ fun Number(value: Int, active: Boolean) {
 @Composable
 fun NumberPreview() {
     Column {
-        Number(value = 3, true)
-        Number(value = 7, false)
+        Number(true, 3)
+        Number(false, 7)
     }
 }
