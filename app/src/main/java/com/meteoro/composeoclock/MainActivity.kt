@@ -8,8 +8,10 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.meteoro.composeoclock.components.Clock
 import com.meteoro.composeoclock.components.Number
 import com.meteoro.composeoclock.components.NumberColumn
+import com.meteoro.composeoclock.model.Time
 import com.meteoro.composeoclock.ui.theme.ComposeOclockTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +21,9 @@ class MainActivity : ComponentActivity() {
             ComposeOclockTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    NumberColumn(range = 0..9, current = 5)
+                    Clock(
+                        time = Time(14, 15, 59)
+                    )
                 }
             }
         }
