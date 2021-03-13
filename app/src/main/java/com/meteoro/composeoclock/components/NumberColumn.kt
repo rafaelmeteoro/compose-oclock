@@ -1,9 +1,11 @@
 package com.meteoro.composeoclock.components
 
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
@@ -15,7 +17,7 @@ fun NumberColumn(
     current: Int
 ) {
     val mid = (range.last - range.first) / 2f
-    val offset = 40.dp * (mid - current)
+    val offset by animateDpAsState(targetValue = 40.dp * (mid - current))
     Column(
         modifier = Modifier
             .offset(y = offset)
